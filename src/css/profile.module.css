@@ -1,0 +1,142 @@
+.page{
+    padding: 4vw 7vw;
+}
+
+.flex{
+    display: flex;
+}
+
+.page h1{
+    font-size: 40px;
+    margin-bottom: 0;
+    color: #3E435D;
+}
+
+.page h2{
+    margin: 0 auto auto 5px;
+    color: #ADA7A7;
+    font-weight: 600;
+}
+
+.sep{
+    height: 70px;
+    width: 100%;
+    background-image: linear-gradient(to right, #b5d2f0 , #fcf7e1);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin: 50px 0 30px;
+}
+
+.name{
+    align-items: center;
+    gap: 10px;
+}
+
+.name img{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    border: 2px black solid
+}
+
+.name h3{
+    margin: 0;
+    font-weight: bold;
+}
+
+.name p{
+    color: rgb(95, 95, 95);
+    margin: 0;
+}
+
+.top{
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+.top button{
+    all: unset;
+    height: fit-content;
+    padding: 10px 25px;
+    background-color: #4182F9;
+    font-size: medium;
+    font-weight: 500;
+    color: white;
+    border-radius: 5px;
+}
+
+.form{
+    padding: 15px;
+}
+
+.inputs{
+    justify-content: space-between;
+    gap: 100px;
+}
+
+.inputs div{
+    width: 100%;
+    margin-top: 30px;
+}
+
+.inputs div input, .select{
+    font-size: medium;
+    width: 100%;
+    height: 30px;
+    border: 0;
+    background-color: #eaeaeaa8;
+    padding: 7px 7px 7px 15px;
+    border-radius: 4px;
+    margin-top: 10px;
+    box-sizing: unset;
+}
+
+.inputs div label{
+    display: block;
+    font-weight: 500;
+}
+
+.email{
+    align-items: center;
+    gap: 10px;
+}
+
+.email i{
+    color: #4182F9;
+    background-color: #4181f92d;
+    padding: 12px;
+    border-radius: 50%;
+}
+
+.email h5{
+    font-weight: 500;
+    margin: 0;
+    font-size: medium;
+}
+
+.email p{
+    font-size: small;
+    color: #ADA7A7;
+    margin: 0;
+}
+
+.gap{
+    margin-top: 50px;
+}
+
+@media (max-width:400px) {
+    .page{
+        padding: 4vw 3vw;
+    }
+    .page h1{
+        font-size: 35px;
+    }
+    .top{
+        padding: 0;
+    }
+    .inputs{
+        flex-direction: column;
+        gap: 0;
+        width: 93%;
+    }
+}

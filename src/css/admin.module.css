@@ -1,0 +1,95 @@
+.flex {
+    display: flex;
+}
+
+.menu {
+    width: 20%;
+    height: 97vh;
+    position: sticky;
+    padding: 10px;
+    box-shadow: 10px 0 10px -10px rgba(0, 0, 0, 0.7);
+    overflow-y: auto;
+}
+
+.content {
+    width: 80%;
+    height: 100vh;
+}
+
+.logo {
+    max-height: 60px;
+    width: 90%;
+    padding: 5px 0 20px;
+}
+
+.logoBox {
+    display: flex;
+    justify-content: center;
+}
+
+.menuItem {
+    display: flex;
+    text-decoration: none;
+    color: black;
+    align-items: center;
+    gap: 10px;
+    /* background-color: #1D2B4F; */
+    margin-top: 1px;
+    padding: 15px;
+    border-radius: 7px;
+}
+
+.menuItem:hover{
+    background-color: rgb(207, 207, 207);
+}
+
+.active{
+    background-color: #1D2B4F;
+    color: white;
+}
+
+.active:hover{
+    background-color: #1D2B4F;
+}
+
+.menuItem p {
+    margin: 0;
+    padding-bottom: 2px;
+}
+.menuItem i {
+    font-size: larger;
+    min-width: 30px;
+}
+.personal{
+    margin-top: 40px;
+    border-top: 2px #e9e9ef solid;
+    padding-top: 10px;
+}
+
+.navbar{
+    display: flex;
+    position: sticky;
+    height: 60px;
+    align-items: center;
+    justify-content: end;
+    gap: 15px;
+    padding-right: 30px;
+    border-bottom: 2px #e9e9ef solid;
+    box-shadow: 0 7px 5px -5px rgba(0, 0, 0, 0.3);
+}
+
+.navbar img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px black solid;
+}
+
+.navbar i{
+    font-size: 20px;
+    color: #4B4B4C;
+}
+
+.outlet{
+    background-color: #f2f4fa;
+}

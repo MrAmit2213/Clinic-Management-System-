@@ -1,0 +1,286 @@
+.home{
+    color: rgb(4, 4, 85);
+    font-weight: 500;
+}
+.home section:first-child{
+    padding: 5vw 7vw 70px;
+    background-image: url(../../public/images/Group\ 3.svg);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: 350px;
+    background-size: 20%;
+}
+
+.adjust{
+    display: flex;
+    align-items: center;
+}
+
+.home p{
+    color: rgba(4, 4, 85, 0.568);
+}
+
+.flex{
+    display: flex;
+}
+
+.revFlex{
+    display: flex;
+    flex-direction: column;
+}
+
+.home1{
+    padding: 0 5%;
+    gap: 10vw;
+}
+
+.home1 div:first-child{
+    padding: 70px 20px 0;
+}
+
+.home1 div h1{
+    font-size: xx-large;
+    font-weight: 500;
+}
+.home1 div h2{
+    margin-bottom: 0;
+}
+.home1 div h5{
+    margin: 0;
+    color: rgba(4, 4, 85, 0.568);
+}
+
+.home1 div p{
+    padding-right: 50px;
+    margin-bottom: 30px;
+}
+
+.home1 a, .home3 a{
+    text-decoration: none;
+}
+
+.btn{
+    align-items: center;
+    color: white;
+    background-color: rgb(4, 4, 85);
+    margin-top: 40px;
+    height: 55px;
+    width: 200px;
+    justify-content: center;
+    border-radius: 25px;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+.btn h6{
+    font-size: 13px;
+    padding-bottom: 3px;
+    display: inline;
+}
+.btn i{
+    background-color: rgba(128, 128, 128, 0.336);
+    padding: 2px 5px;
+    border-radius: 50%;
+}
+
+.home1 img{
+    border-top-left-radius: 26%;
+    width: 32vw;
+}
+
+.service{
+    height: 70px;
+    width: 300px;
+    gap: 20px;
+}
+.allService{
+    gap: 40px;
+    margin-top: 40px;
+    padding: 0 5%;
+}
+
+.service img{
+    border-radius: 10px;
+    height: 70px;
+    width: 70px;
+}
+
+.service span h4, .service span p{
+    margin: 0;
+}
+
+.service span p{
+    font-size: 14px;
+}
+
+/* 2nd part */
+
+.home2{
+    background-color: #eff2fc;
+    gap: 10vw;
+    padding: 5vw 8vw;
+    background-image: url(../../public/images/Group\ 17403.svg);
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: 350px;
+    background-size: 20%;
+}
+
+.home2 h1{
+    font-size: 40px;
+    text-align: center;
+}
+
+.img{
+    /* padding: 7vw 0 0; */
+    width: 32vw;
+    border-radius: 0;
+    border-top-right-radius: 40%;
+}
+
+.reason{
+    gap: 30px;
+    justify-content: center;
+}
+
+.reason img{
+    border-radius: 50%;
+}
+
+.reason h1{
+    margin-bottom: 0;
+}
+.reason h2{
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.reason div{
+    gap: 20px;
+}
+
+/* 3rd part  */
+
+.home3{
+    padding: 5vw 7vw;
+    gap: 6vw;
+}
+
+.home3 img{
+    padding: 2vw;
+    width: 32vw;
+    border-top-left-radius: 15%;
+    border-bottom-right-radius: 15%;
+}
+
+.left h1{
+    font-size: 60px;
+    margin-bottom: 0;
+}
+
+.left p{
+    font-size: 23px;
+    width: 75%;
+    margin: 30px 0;
+}
+
+.left .btn{
+    margin-left: 0;
+    padding: 0 20px;
+    justify-content: center;
+}
+.left .btn h6{
+    font-size: 16px;
+}
+
+.check{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.check i{
+    background-color: rgb(4, 4, 85);
+    font-size: 8px;
+    color: white;
+    border-radius: 50%;
+    padding: 4px 5px 4px 3px;
+}
+
+.check p{
+    font-size: 16px;
+    margin: 0;
+    width: auto;
+}
+
+.map{
+    padding: 1vw 5vw 3vw;
+}
+
+.mapFrame{
+    width: 100%;
+    height: 550px;
+}
+
+.opinion{
+    background-color: #eff2fc;
+    padding: 50px;
+}
+
+@media (max-width: 400px){
+    .home section{
+        padding: 5vw 3vw !important;
+    }
+    .home section:first-child{
+        padding-bottom: 40px !important;
+    }
+    .home1{
+        flex-direction: column-reverse;
+        gap: 0;
+        padding: 0;
+    }
+    .home1 div:first-child{
+        padding: 0;
+    }
+    .home1 img{
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .allService{
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .home2{
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .img{
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .home3{
+        flex-direction: column-reverse;
+        gap: 0;
+    }
+
+    .home3 img{
+        width: 100%;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .left h1{
+        font-size: 40px;
+    }
+
+    .map{
+        padding: 3vw;
+    }
+
+    .map iframe{
+        height: 350px;
+    }
+}

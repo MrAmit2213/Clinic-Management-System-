@@ -1,0 +1,57 @@
+.body{
+    padding: 0 50px 20px 20px;
+}
+
+.head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head h1{
+    color: #4B4B4C;
+}
+
+.head input{
+    all: unset;
+    background-color: white;
+    height: 30px;
+    width: 200px;
+    font-size: medium;
+    padding: 5px 20px;
+    color: #345077;
+    font-weight: 500;
+    border-radius: 10px;
+    border: 0.5px solid rgb(189, 189, 189);
+}
+.head input::placeholder{
+    opacity: .8;
+    color: #345077;
+}
+.add{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.add button{
+    all: unset;
+    padding: 10px;
+    background-color: #1D2B4F;
+    color: white;
+    border-radius: 5px;
+    font-size: small;
+}
+.number{
+    display: flex;
+    gap: 3%;
+    color: #4B4B4C;
+}
+.number h1{
+    margin-bottom: 0;
+    font-size: large;
+}
+.number h3{
+    margin-top: 0;
+    font-size: small;
+    text-wrap: nowrap;
+}

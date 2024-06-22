@@ -1,0 +1,47 @@
+.body {
+    margin-top: 40px;
+}
+
+.title {
+    color: black !important;
+    border-bottom: 5px solid;
+    border-image: linear-gradient(to right, #1D2B4F 80%, transparent 50%) 100% 1;
+    display: inline;
+    padding-bottom: 5px;
+}
+
+.page{
+    margin-top: 50px;
+}
+
+.flex{
+    display: flex;
+}
+
+.pay{
+    margin-top: 10px;
+    justify-content: space-between;
+    background-color: #F3F7FE;
+    padding: 15px 30px;
+    font-weight: 500;
+}
+
+.num{
+    gap: 50px;
+}
+
+.num i{
+    color: #1D2B4F;
+}
+.down{
+    cursor: pointer;
+}
+
+@media (max-width:400px) {
+    .pay{
+        padding: 15px;
+    }
+    .num{
+        gap: 7px;
+    }
+}

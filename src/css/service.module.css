@@ -1,0 +1,164 @@
+.container{
+    position: relative;
+}
+.header{
+    text-align: left;
+    display: table;
+    font-size: 35px;
+    margin-top: 0;
+}
+.side_header{
+    display: table;
+    font-size: 35px;
+    border-bottom: 7px solid #3465c4;
+}
+.carsouel_container{
+    color: black;
+    padding: 0 10px;
+    display: flex;
+    gap: 40px;
+    scroll-behavior: smooth;
+    position: relative;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.carsouel_box{
+    cursor: pointer;
+    margin: 18px 0;
+    background: white;
+    box-shadow: 8px 5px 19px 0px #0000004d;
+    border: 1px solid #3465C4;
+    border-radius: 5px;
+    padding: 20px 25px;
+    min-width: 350px;
+    max-width: 350px;
+}
+.icon{
+    border: 1px solid #3465C4;
+    border-radius: 50%;
+    padding: 5px;
+}
+.head{
+    color: #3465C4;
+    padding: 10px 0;
+}
+.blue_bg{
+    color: black;
+    background: #f3f7fe;
+}
+.elite_above{
+    position: relative;
+    top: 40px;
+    z-index: 0;
+    left: 40%;
+}
+.elite_bottom{
+    position: relative;
+    top: -40px;
+    z-index: -1;
+    left: 15%;
+}
+.elite_above_full{
+    display: none;
+}
+.elite_bottom_full{
+    display: none;
+}
+.page_container{
+    padding: 50px 6px;
+    max-width: 1280px;
+    margin: 50px auto;
+}
+.d_flex{
+    display: grid;
+    gap: 25px;
+    grid-template-columns: 2fr 1fr;
+}
+.description{
+    margin: 0 80px;
+    align-content: center;
+}
+.description p{
+    padding: 20px 0;
+}
+.connect{
+    padding: 10px 30px;
+    margin: 50px auto;
+    background: green;
+    color: white;
+    font-weight: 600;
+    font-size: large;
+    border-radius: 5px;
+    border: 0;
+}
+.d_flexs{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 50px auto;
+    gap: 40px;
+}
+.card_icon{
+    height: 200px;
+    width: 200px;
+}
+.card{
+    background: white;
+    box-shadow: 1px 9px 9px 0px #8888882e;
+    border-radius: 10px;
+    padding: 30px 20px;
+    text-align: center;
+}
+.card h2{
+    font-size: larger;
+}
+.card p{
+    font-size: medium;
+}
+.btns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btns i{
+    gap: 10px;
+    padding: 12px 14px;
+    color: white;
+    background-color: rgb(4, 4, 85);
+    border-radius: 10px;
+}
+.btns i:hover{
+    background-color: rgba(4, 4, 85, 0.85);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+.btns div{
+    display: flex;
+    gap: 20px;
+}
+.mobBtns{
+    display: none;
+}
+@media screen and (max-width:400px) {
+
+    .d_flex{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .description{
+        margin: 0 15px;
+    }
+    .d_flexs{
+        grid-template-columns: unset;
+        margin: 50px 20px;
+    }
+    .btns div{
+        display: none;
+    }
+    .mobBtns{
+        display: flex;
+        padding: 18px 25px;
+        padding-bottom: 0;
+    }
+    .header{
+        margin-bottom: 0;
+    }
+}

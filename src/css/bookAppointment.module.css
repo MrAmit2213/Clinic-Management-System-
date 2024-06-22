@@ -1,0 +1,166 @@
+.page{
+    padding: 5vh 15vw;
+    color: rgb(4, 4, 85);
+}
+
+.page form{
+    margin-top: 60px;
+}
+
+.flex {
+    display: flex;
+}
+
+.forms{
+    gap: 30px;
+}
+
+.page h1{
+    text-align: center;
+}
+
+.spcBtw{
+    justify-content: space-between;
+}
+
+.input {
+    border: 2px solid rgba(150, 147, 147, 0.486);
+    margin-top: 30px;
+    padding: 5px 20px 10px;
+    background-color: white;
+}
+
+.input:focus-within {
+    border-left: 5px solid rgba(4, 4, 85, 0.759);
+}
+
+.input input:-webkit-autofill {
+    -webkit-text-fill-color: rgb(4, 4, 85);
+}
+
+.input label {
+    color: rgb(112, 112, 112);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.input input,.input select {
+    all: unset;
+    border: 0;
+    width: 100%;
+    padding-top: 5px;
+    color: rgb(4, 4, 85);
+    font-weight: 600;
+    background: none;
+}
+
+.wid div{
+    width: 23%;
+}
+
+.left{
+    width: 55%;
+}
+
+.right{
+    width: 25%;
+}
+
+.date div{
+    width: 100%;
+}
+
+.issue{
+    height: 80px;
+}
+
+.issue input{
+    height: 65%;
+}
+
+.cal{
+    margin-top: 30px;
+}
+
+.cal .input{
+    margin-top: 37px;
+}
+
+.btns {
+    justify-content: center;
+    margin-top: 60px;
+    gap: 30px;
+}
+.input select{
+    margin-left: 4px;
+}
+
+.btns button {
+    height: 45px;
+    padding: 3px 50px;
+    border-radius: 0;
+}
+
+.cancel {
+    all: unset;
+    background-color: white;
+    border: rgb(4, 4, 85) 1px solid;
+    text-align: center;
+    border: rgb(4, 4, 85) 1px solid;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pay {
+    all: unset;
+    background-color: rgb(4, 4, 85);
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 10px rgba(0, 0, 0, 0.19);
+}
+
+.link {
+    all: unset;
+}
+
+@media (max-width: 400px) {
+    .page{
+        padding: 2vw;
+        color: rgb(4, 4, 85);
+    }
+
+    .page h1{
+        margin: 3px 0;
+    }
+
+    .page form{
+        margin: 10px 20px;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+    }
+
+    .flxCol{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .wid div{
+        width: 86%;
+    }
+    
+    .left{
+        width: 86%;
+    }
+    
+    .right{
+        width: 86%;
+    }
+
+    .btns {
+        margin-top: 30px;
+    }
+
+    .input{
+        margin-top: 16px;
+    }
+}
