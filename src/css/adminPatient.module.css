@@ -1,42 +1,22 @@
-.body {
+.body{
     padding: 0 50px 20px 20px;
 }
 
-.head {
+.head{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.head h1 {
+.head h1{
     color: #4B4B4C;
 }
-
-.head input {
-    all: unset;
-    background-color: white;
-    height: 30px;
-    width: 200px;
-    font-size: medium;
-    padding: 5px 20px;
-    color: #345077;
-    font-weight: 500;
-    border-radius: 10px;
-    border: 0.5px solid rgb(189, 189, 189);
-}
-
-.head input::placeholder {
-    opacity: .8;
-    color: #345077;
-}
-
-.add {
+.add{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
-.add button {
+.add button{
     all: unset;
     padding: 10px;
     background-color: #1D2B4F;
@@ -45,24 +25,28 @@
     font-size: small;
 }
 
-.number {
+.sort{
     display: flex;
-    gap: 3%;
-    color: #4B4B4C;
+    gap: 20px;
+}
+.sort div{
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 13px 15px;
+    background-color: white;
 }
 
-.number h1 {
-    margin-bottom: 0;
-    font-size: large;
-}
-
-.number h3 {
-    margin-top: 0;
-    font-size: small;
-    text-wrap: nowrap;
+.select{
+    border: 0;
+    color: #1D2B4F;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 2px;
+    outline: none;
 }
 
 .input {
+    text-align: left;
     border: 2px solid rgba(128, 128, 128, 0.459);
     margin-top: 20px;
     padding: 2px 20px 5px;
@@ -80,6 +64,10 @@
     color: rgb(112, 112, 112);
     font-size: 14px;
     font-weight: 500;
+}
+
+.input input{
+    all: unset;
 }
 
 .input input, .formSelect {
@@ -111,6 +99,22 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+.show {
+    display: block;
+}
+
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.img img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
 .btns {
     display: flex;
     flex-direction: row-reverse;
@@ -124,44 +128,76 @@
     border-radius: 5px;
 }
 
-.dropdownContent {
-    display: none;
-    position: absolute;
-    background-color: #f6f6f6;
-    min-width: 230px;
-    overflow: auto;
-    border: 1px solid #ddd;
-    z-index: 1;
+.btn{
+    color: #8CA4C5;
+    cursor: pointer;
+    padding-left: 10px !important;
+    text-align: center;
 }
 
-.dropdownContent li {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+.btn i{
+    margin-right: 10px;
 }
 
-.show {
-    display: block;
+.btn:first-child{
+    margin: 0;
 }
-.red{
-    color: red;
+.status{
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 5px;
+}
+.status i{
+    font-size: xx-small;
+    margin-top: 5px;
 }
 .green{
+    background-color: rgba(0, 128, 0, 0.5);
     color: green;
 }
 .yellow{
-    color: rgb(221, 221, 0);
+    background-color: rgba(255, 0, 0, 0.5);
+    color: red;
+}
+.red{
+    background-color: rgba(255, 255, 0, 0.2);
+    color: rgb(183, 183, 0);
+}
+.modalItem{
+    text-align: center;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    color: black;
 }
 
-.status i{
-    font-size: 6px;
-    padding-top: 5px;
+.modalItem button{
+    padding: 8px 13px;
+    width: fit-content;
+    border-radius: 5px;
 }
 
-.status{
+.modalItem div{
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 5px;
+    gap: 25px;
+}
+
+.save{
+    background-color: rgb(4, 4, 85);
+    color: white;
+}
+
+.cancel{
+    color: rgb(4, 4, 85);
+    background-color: transparent;
+}
+
+.modalItem button:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 10px rgba(0, 0, 0, 0.19);
 }

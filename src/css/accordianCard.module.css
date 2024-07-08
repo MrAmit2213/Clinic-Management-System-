@@ -1,58 +1,80 @@
-.body{
-    padding: 50px 10px;
+.body {
+  padding: 50px 10px;
 }
 
-  .accordion {
-    /* border: 1px solid #ddd; */
-    border-radius: 5px;
-  }
-  
-  .accordion_item {
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-  }
-  
-  .accordion_item:last-child {
-    border-bottom: none;
-  }
-  
-  .accordion_header {
-    background-color: #F3F7FE;
-    padding: 15px 45px;
-    cursor: pointer;
-  }
+.accordion {
+  /* border: 1px solid #ddd; */
+  border-radius: 5px;
+}
 
-  .head{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.accordion_item {
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
 
-  .accordion_header h4{
-    margin: 0;
-    font-weight: bold;
-  }
-  .accordion_header i{
-    padding: 10px;
-    background-color: #1d2b4f;
-    border-radius: 50%;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .accordion_panel {
-    display: none;
-    padding: 5px 0 15px;
-    background-color: #fff;
-  }
-  
-  .accordion_panel.active {
-    display: block;
-  }
+.accordion_item:last-child {
+  border-bottom: none;
+}
 
-  .change{
-    background-color: white;
-  }
-  
+.accordion_header {
+  background-color: #F3F7FE;
+  padding: 15px 45px;
+  cursor: pointer;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion_header h4 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.accordion_header i {
+  padding: 10px;
+  background-color: #1d2b4f;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accordion_panel {
+  display: none;
+  padding: 5px 0 15px;
+  background-color: #fff;
+}
+
+.accordion_panel.active {
+  display: block;
+}
+
+.change {
+  background-color: white;
+}
+
+.btns {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.btns p {
+  margin: 0;
+}
+
+.subcard{
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-around;
+  font-weight: 500;
+}
+
+.com{
+  font-weight: 500;
+  text-align: center;
+}

@@ -1,18 +1,17 @@
-.body {
+.body{
     padding: 0 50px 20px 20px;
 }
 
-.head {
+.head{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.head h1 {
+.head h1{
     color: #4B4B4C;
 }
-
-.head input {
+.head input{
     all: unset;
     background-color: white;
     height: 30px;
@@ -24,19 +23,16 @@
     border-radius: 10px;
     border: 0.5px solid rgb(189, 189, 189);
 }
-
-.head input::placeholder {
+.head input::placeholder{
     opacity: .8;
     color: #345077;
 }
-
-.add {
+.add{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
-.add button {
+.add button{
     all: unset;
     padding: 10px;
     background-color: #1D2B4F;
@@ -45,24 +41,61 @@
     font-size: small;
 }
 
-.number {
+.img{
     display: flex;
-    gap: 3%;
-    color: #4B4B4C;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.img img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
 }
 
-.number h1 {
-    margin-bottom: 0;
-    font-size: large;
+.btns {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 20px;
+    gap: 30px;
 }
 
-.number h3 {
-    margin-top: 0;
-    font-size: small;
-    text-wrap: nowrap;
+.btns button {
+    height: 35px;
+    width: 80px;
+    border-radius: 5px;
+}
+
+.btn{
+    color: #8CA4C5;
+    cursor: pointer;
+    padding-left: 10px !important;
+    text-align: center;
+}
+
+.btn i{
+    margin-right: 10px;
+}
+
+.btn:first-child{
+    margin: 0;
+}
+
+.btns {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 20px;
+    gap: 30px;
+}
+
+.btns button {
+    height: 35px;
+    width: 80px;
+    border-radius: 5px;
 }
 
 .input {
+    text-align: left;
     border: 2px solid rgba(128, 128, 128, 0.459);
     margin-top: 20px;
     padding: 2px 20px 5px;
@@ -91,7 +124,6 @@
     background: none;
     outline: none;
 }
-
 .addNew {
     all: unset;
     cursor: pointer;
@@ -109,19 +141,6 @@
     border: rgb(4, 4, 85) 1px solid;
     text-align: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.btns {
-    display: flex;
-    flex-direction: row-reverse;
-    margin-top: 20px;
-    gap: 30px;
-}
-
-.btns button {
-    height: 35px;
-    width: 80px;
-    border-radius: 5px;
 }
 
 .dropdownContent {
@@ -143,25 +162,4 @@
 
 .show {
     display: block;
-}
-.red{
-    color: red;
-}
-.green{
-    color: green;
-}
-.yellow{
-    color: rgb(221, 221, 0);
-}
-
-.status i{
-    font-size: 6px;
-    padding-top: 5px;
-}
-
-.status{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
 }

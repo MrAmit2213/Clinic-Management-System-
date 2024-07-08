@@ -49,24 +49,24 @@ const Home = () => {
     };
     const fetchWhyImg = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_HOST}api/photo_only_why_us/`);
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_HOST}api/company/`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const result = await response.json();
-        setWhyImg(result);
+        setWhyImg(result.data[0]);
       } catch (error) {
         console.log('error')
       }
     };
     const fetchMap = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_HOST}api/reach_us/`);
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_HOST}api/contact/`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const result = await response.json();
-        setMap(result);
+        setMap(result.data[0]);
       } catch (error) {
         console.log('error')
       }
@@ -81,8 +81,6 @@ const Home = () => {
 
   const home3Data = home3 && home3.success && home3.data.length > 0 ? home3.data[0] : null;
   const home1Data = home1 && home1.success && home1.data.length > 0 ? home1.data[0] : null;
-  const img = whyImg && whyImg.success && whyImg.data.length > 0 ? whyImg.data[0] : null;
-  const link = map && map.success && map.data.length > 0 ? map.data[0] : null;
 
   return (
     <div className={styles.home}>
@@ -120,9 +118,9 @@ const Home = () => {
       </section>
       <section className={`${styles.flex} ${styles.home2}`}>
         {
-          img &&
+          whyImg.why_us_image &&
           <div className={styles.adjust}>
-            <img className={`${styles.img}`} src={`${process.env.REACT_APP_BACKEND_HOST}${img.image}`} alt="home2" />
+            <img className={`${styles.img}`} src={`${process.env.REACT_APP_BACKEND_HOST}${whyImg.why_us_image}`} alt="home2" />
           </div>
         }
         <div className={`${styles.revFlex} ${styles.reason}`}>
@@ -170,7 +168,7 @@ const Home = () => {
       </section>
       <section className={styles.map}>
         <h1>How to reach us</h1>
-        {link && <Map link={link.map} />}
+        {map.map && <Map link={map.map} />}
       </section>
     </div>
   )

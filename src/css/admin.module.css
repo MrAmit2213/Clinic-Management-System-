@@ -3,17 +3,19 @@
 }
 
 .menu {
-    width: 20%;
+    width: 270px;
     height: 97vh;
     position: sticky;
     padding: 10px;
     box-shadow: 10px 0 10px -10px rgba(0, 0, 0, 0.7);
     overflow-y: auto;
+    overflow-x: visible;
 }
 
 .content {
-    width: 80%;
+    width: -webkit-fill-available;
     height: 100vh;
+    overflow-y: auto;
 }
 
 .logo {

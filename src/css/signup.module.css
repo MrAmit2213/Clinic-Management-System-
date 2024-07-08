@@ -35,9 +35,11 @@
 }
 
 .logo2 {
-    height: 130px;
+    max-width: 200px;
+    max-height: 130px;
     z-index: 3;
     left: 4vw;
+    padding: 25px;
 }
 
 .leftPage h1 {
@@ -48,6 +50,7 @@
 .logo img {
     display: none;
     height: 130px;
+    max-width: 200px;
 }
 
 .leftPage form {
@@ -150,7 +153,8 @@
     }
 
     .logo img {
-        height: 100px;
+        padding: 20px 0 0 20px;
+        max-height: 70px;
         display: block;
     }
 

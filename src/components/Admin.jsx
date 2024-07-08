@@ -35,15 +35,15 @@ const Admin = () => {
         <div className={`${styles.flex} ${styles.body}`}>
             <div className={styles.menu}>
                     <div className={styles.logoBox}>
-                        <img className={styles.logo} src={`${company.logo ? `${process.env.REACT_APP_BACKEND_HOST}${company.logo}` : "./images/logo.png"}`} alt="logo" />
+                        <img className={styles.logo} src={`${company.logo ? `${process.env.REACT_APP_BACKEND_HOST}${company.logo}` : "/images/logo.png"}`} alt="logo" />
                     </div>
 
-                    <div>
+                    {/* <div>
                         <Link to='/admin/dashboard' className={`${styles.menuItem} ${address==='/admin/dashboard'?styles.active:''}`} >
                             <i className="fa-solid fa-border-all"></i>
                             <p>Dashboard</p>
                         </Link>
-                    </div>
+                    </div> */}
                     <div>
                         <Link to='/admin/patientManagement' className={`${styles.menuItem} ${address==='/admin/patientManagement'?styles.active:''}`} >
                             <i className="fa-solid fa-users-viewfinder"></i>
@@ -74,14 +74,14 @@ const Admin = () => {
                             <p>Health records</p>
                         </Link>
                     </div>
-                    <div>
+                    {/* <div>
                         <Link to='/admin/analytics' className={`${styles.menuItem} ${address==='/admin/analytics'?styles.active:''}`} >
                             <i className="fa-solid fa-chart-line"></i>
                             <p>Analytics</p>
                         </Link>
-                    </div>
+                    </div> */}
                     <div>
-                        <Link to='/admin/blogs' className={`${styles.menuItem} ${address==='/admin/blogs'?styles.active:''}`} >
+                        <Link to='/admin/blogs' className={`${styles.menuItem} ${address.includes('/admin/blogs')?styles.active:''}`} >
                             <i className="fa-solid fa-newspaper"></i>
                             <p>Blogs</p>
                         </Link>
@@ -104,7 +104,7 @@ const Admin = () => {
             <div className={styles.content}>
                 <div className={styles.navbar}>
                     <i className="fa-regular fa-bell"></i>
-                    <img src={`${authData.image ? `${process.env.REACT_APP_BACKEND_HOST}${authData.image}` : "./images/default-profile.jpg"}`} alt="profile" />
+                    <img src={`${authData.image ? `${process.env.REACT_APP_BACKEND_HOST}${authData.image}` : "/images/default-profile.jpg"}`} alt="profile" />
                     <i className="fa-solid fa-chevron-down"></i>
                 </div>
                 <div className={styles.outlet}>

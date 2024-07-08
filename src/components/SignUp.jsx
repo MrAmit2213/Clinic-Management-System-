@@ -1,11 +1,25 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../css/signup.module.css';
 import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios';
 
 const SignUp = () => {
     const navigate = useNavigate();
-    const [credentials, setCredentials] = useState({ email: '', first_name: '', last_name: '', phone_number: '', password: '', confirmPassword: '' })
-    const [show, setShow] = useState(false)
+    const [company, setCompany] = useState({});
+    const [credentials, setCredentials] = useState({ email: '', first_name: '', last_name: '', type:'3', phone_number: '', password: '', confirmPassword: '' })
+    const [show, setShow] = useState(false);
+
+    useEffect(() => {
+        const fetchData = async () => {
+
+            axios.get(`${process.env.REACT_APP_BACKEND_HOST}api/company/`).then(res => {
+                setCompany(res.data.data[0]);
+            });
+
+        }
+        fetchData();
+    }, []);
+
     const onChange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
     };
@@ -15,13 +29,19 @@ const SignUp = () => {
         if(credentials.confirmPassword!==credentials.password){
             return setShow(true)
         }
+        
+        const formData = new FormData();
+        for (const key in credentials) {
+            if (key === 'confirmPassword') {
+                continue;
+            } else {
+                credentials[key] && formData.append(key, credentials[key]);
+            }
+        }
 
         fetch(`${process.env.REACT_APP_BACKEND_HOST}api/user/`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(credentials),
+            body: formData,
         })
         .then(response => {
             if (!response.ok) {
@@ -45,7 +65,7 @@ const SignUp = () => {
             <div className={styles.flexRev}>
                 <div className={styles.leftPage}>
                     <div className={styles.logo}>
-                        <img src="./images/logo.png" alt="logo" />
+                        <img src={`${company.logo?`${process.env.REACT_APP_BACKEND_HOST}${company.logo}`:"../images/logo.png"}`} alt="logo" />
                     </div>
                     <div>
                         <form action="">
@@ -97,7 +117,7 @@ const SignUp = () => {
                     </div>
                 </div>
                 <div className={styles.rightPage}>
-                    <img className={styles.logo2} src="./images/logo.png" alt="logo" />
+                    <img className={styles.logo2} src={`${company.logo?`${process.env.REACT_APP_BACKEND_HOST}${company.logo}`:"../images/logo.png"}`} alt="logo" />
                     <svg className={styles.bgImg} viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M584.766 72.576C542.136 46.06 491.036 43.176 446.012 65.254C407.666 84 377.832 115.878 339.444 134.638C287 160.3 229.418 174.328 176.4 198.912C123.382 223.496 72.632 262.024 53.62 317.296C31.22 382.578 39.088 459.34 73.346 519.022C129.038 616.028 239.498 650.482 345.842 649.222C570.556 646.576 686.308 374.416 649.642 178.822C641.634 136.444 622.118 95.802 584.766 72.576Z" fill="#1D2B4F" />
                         <path opacity="0.7" d="M584.766 72.576C542.136 46.06 491.036 43.176 446.012 65.254C407.666 84 377.832 115.878 339.444 134.638C287 160.3 229.418 174.328 176.4 198.912C123.382 223.496 72.632 262.024 53.62 317.296C31.22 382.578 39.088 459.34 73.346 519.022C129.038 616.028 239.498 650.482 345.842 649.222C570.556 646.576 686.308 374.416 649.642 178.822C641.634 136.444 622.118 95.802 584.766 72.576Z" fill="white" />

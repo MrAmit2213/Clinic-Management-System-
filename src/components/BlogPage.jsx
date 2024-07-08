@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../css/blogPage.module.css'
 import BlogCard from './BlogCard';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const BlogPage = () => {
     const { id } = useParams();
@@ -66,13 +66,15 @@ const BlogPage = () => {
             <div className={styles.blog}>
                 <h1>{blog.title} :</h1>
                 <img src={`${process.env.REACT_APP_BACKEND_HOST}${blog.image}`} alt="blog" />
-                <p>{blog.description }</p>
+                <p dangerouslySetInnerHTML={{ __html: blog.description}}></p>
             </div>
             <div className={styles.similar}>
                 <h1>Similar Blogs</h1>
-                <div className={styles.flex}>
+                <div className={`${styles.flex} ${styles.simBody}`}>
                     {shuffledBlog.map((item) => (
-                        <BlogCard key={item.id} data={item} />
+                        <Link key={item.id} to={`/blog/${item.id}`} >
+                            <BlogCard data={item} />
+                        </Link>
                     ))}
                 </div>
             </div>

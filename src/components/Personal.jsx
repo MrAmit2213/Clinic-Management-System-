@@ -1,14 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../css/profile.module.css'
 import { useSelector } from 'react-redux';
+import Modal from './Modal';
 
 
 const Personal = () => {
     const authData = useSelector(state => state.Reducer);
     const [editable, setEditable] = useState(false)
-    const [profile, setProfile] = useState({ first_name: '', last_name: '', phone_number: '', gender: '', email: '', image: '' });
-    const [eprofile, setEprofile] = useState({ name: '', number: '', gender: '', email: '' });
+    const [profile, setProfile] = useState({ first_name: '', last_name: '', phone_number: '', gender: '', email: '', image: '', address: '', age: '', blood_group: '' });
+    const [eprofile, setEprofile] = useState({ name: '', number: '', gender: '', email: '', address: '', age: '', blood_group: '' });
     const [timePassed, setTimePassed] = useState('');
+    const [open, setOpen] = useState(false);
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const handleOpen = () => {
+        setOpen(true);
+    };
 
     function calculateTimePassed(date) {
         const now = new Date();
@@ -19,7 +28,7 @@ const Personal = () => {
         const diffMonths = now.getMonth() - pastDate.getMonth() + diffYears * 12;
         const diffFullYears = Math.floor(diffMonths / 12);
         const remainingMonths = diffMonths % 12;
-    
+
         if (diffMonths < 1) return `${diffDays} days ago`;
         if (diffFullYears >= 1) {
             return remainingMonths === 0
@@ -30,26 +39,26 @@ const Personal = () => {
     }
 
     useEffect(() => {
-        setTimePassed(calculateTimePassed(profile['create on']));
+        setTimePassed(calculateTimePassed(profile['create_on']));
     }, [profile]);
 
 
+    const fetchData = async () => {
+        try {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_HOST}api/user/${authData.userId}`);
+            const data = await response.json();
+            setProfile(data.data[0]);
+        } catch (error) {
+            console.error('Error fetching blog data:', error);
+        }
+    };
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_HOST}api/user/${authData.userId}`);
-                const data = await response.json();
-                setProfile(data.data[0]);
-            } catch (error) {
-                console.error('Error fetching blog data:', error);
-            }
-        };
-
         fetchData();
+        // eslint-disable-next-line
     }, [authData.userId]);
 
     useEffect(() => {
-        setEprofile({ name: `${profile.first_name} ${profile.last_name}`, gender: profile.gender, number: profile.phone_number, email: profile.email });
+        setEprofile({ name: `${profile.first_name} ${profile.last_name}`, gender: profile.gender, number: profile.phone_number, email: profile.email, address: profile.address, age: profile.age, blood_group: profile.blood_group });
     }, [profile]);
 
     const edit = () => {
@@ -65,15 +74,20 @@ const Personal = () => {
                 body: JSON.stringify({
                     id: authData.userId,
                     first_name: eprofile.name.split(' ')[0],
-                    last_name: eprofile.name.substring(eprofile.name.split(' ')[0].length+1),
+                    last_name: eprofile.name.substring(eprofile.name.split(' ')[0].length + 1),
                     phone_number: eprofile.number,
-                    gender: eprofile.gender
+                    gender: eprofile.gender,
+                    address: eprofile.address,
+                    age: eprofile.age,
+                    blood_group: eprofile.blood_group
                 }),
             });
-            
+
             if (response.ok) {
                 console.log('Profile updated successfully');
                 setEditable(false);
+                handleClose();
+                fetchData();
             } else {
                 console.error('Failed to update profile');
             }
@@ -97,12 +111,24 @@ const Personal = () => {
                     </div>
                 </div>
                 {editable ?
-                    <button onClick={save}>Save</button>
+                    <div className={styles.btns}>
+                        <button onClick={() => { setEditable(false) }}>Cancel</button>
+                        <button onClick={handleOpen}>Save</button>
+                    </div>
                     :
                     <button onClick={edit}>Edit</button>
                 }
             </div>
             <div className={styles.form}>
+                <Modal isOpen={open} onClose={handleClose}>
+                    <div className={styles.modalItem}>
+                        <p>Are you sure you want to save the changes?</p>
+                        <div>
+                            <button className={styles.cancel} onClick={handleClose}>No</button>
+                            <button className={styles.save} onClick={save}>Save</button>
+                        </div>
+                    </div>
+                </Modal>
                 <form action="" >
                     <div className={`${styles.flex} ${styles.inputs}`}>
                         <div>
@@ -124,8 +150,18 @@ const Personal = () => {
                             </select>
                         </div>
                         <div>
-                            <label htmlFor="number">Mobile Number</label>
-                            <input type="text" disabled={!editable} />
+                            <label htmlFor="age">Age</label>
+                            <input type="text" name='age' id='age' value={eprofile.age} placeholder='Age' disabled={!editable} onChange={onChange} />
+                        </div>
+                    </div>
+                    <div className={`${styles.flex} ${styles.inputs}`}>
+                        <div>
+                            <label htmlFor="address">Address</label>
+                            <input type="text" id='address' name='address' placeholder='Address' value={eprofile.address} disabled={!editable} onChange={onChange} />
+                        </div>
+                        <div>
+                            <label htmlFor="blood_group">Blood Group</label>
+                            <input type="text" id='blood_group' name='blood_group' placeholder='Blood Group' value={eprofile.blood_group} disabled={!editable} onChange={onChange} />
                         </div>
                     </div>
                     <div className={styles.gap}>

@@ -12,6 +12,7 @@ const OpinionCard = (props) => {
     for (j = 0; j < (5-ratting); j++) {
         unrate.push(<i key={i+j+1} className="fa-regular fa-star"></i>);
     }
+
     return (
         <div ref={props.innerRef}  className={`${styles.card}`}>
             <img src={`${process.env.REACT_APP_BACKEND_HOST}${props.data.image}`} alt="patient" />
@@ -19,8 +20,8 @@ const OpinionCard = (props) => {
                 <p className={styles.desc}>{props.data.description}</p>
                 <div className={styles.foot}>
                     <div>
-                        <h3>T{props.data.name}</h3>
-                        <p className={styles.desig}>{props.data.sub_category}</p>
+                        <h3>{props.data.first_name+' '+props.data.last_name}</h3>
+                        <p className={styles.desig}>{props.data.type==='1'?'Patient':''}</p>
                     </div>
                     <div className={styles.rating}>
                         {rate}

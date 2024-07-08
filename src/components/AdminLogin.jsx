@@ -23,7 +23,7 @@ const AdminLogin = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_HOST}api/admin_user/login`, {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_HOST}api/user/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -34,17 +34,17 @@ const AdminLogin = () => {
         if (json.success) {
             dispatch({
                 type: "ADMIN_LOGIN",
-                userId: json.admin_userData.id,
-                fName: json.admin_userData.first_name,
-                lName: json.admin_userData.last_name,
-                email: json.admin_userData.email,
-                gender: json.admin_userData.gender,
-                image: json.admin_userData.image,
-                number: json.admin_userData.phone_number,
+                userId: json.userData.id,
+                fName: json.userData.first_name,
+                lName: json.userData.last_name,
+                email: json.userData.email,
+                gender: json.userData.gender,
+                image: json.userData.image,
+                number: json.userData.phone_number,
                 isLoggedIn: true,
-                user: 'admin'
+                user: json.userData.type+''==='1'?'admin':json.userData.type+''==='2'?'doctor':json.userData.type+''==='4'?'author':''
             })
-            navigate('/admin/dashboard');
+            navigate('/admin/patientManagement');
         }
         else {
             console.log("Invalid Credentials")
@@ -58,7 +58,7 @@ const AdminLogin = () => {
         <div className={styles.flex} >
             <div className={styles.leftPage}>
                 <div className={styles.logo}>
-                    <img src={`${company.logo?`${process.env.REACT_APP_BACKEND_HOST}${company.logo}`:"./images/logo.png"}`} alt="logo" />
+                    <img src={`${company.logo?`${process.env.REACT_APP_BACKEND_HOST}${company.logo}`:"../images/logo.png"}`} alt="logo" />
                 </div>
                 <div>
                     <form action="">

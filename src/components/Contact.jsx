@@ -5,20 +5,10 @@ import Map from './Map';
 import axios from 'axios';
 
 const Contact = () => {
-    const [link, setLink] = useState([]);
     const [company, setCompany] = useState({});
     const [contact, setContact] = useState({});
 
     useEffect(() => {
-        const fetchMap = async () => {
-            try {
-                axios.get(`${process.env.REACT_APP_BACKEND_HOST}api/reach_us/`).then(res => {
-                    setLink(res.data.data[0]);
-                });
-            } catch (error) {
-                console.log('error')
-            }
-        };
         const fetchCompany = async () => {
             try {
                 axios.get(`${process.env.REACT_APP_BACKEND_HOST}api/company/`).then(res => {
@@ -38,7 +28,6 @@ const Contact = () => {
             }
         }
 
-        fetchMap();
         fetchCompany();
         fetchContact();
     }, []);
@@ -78,7 +67,7 @@ const Contact = () => {
             </div>
             <Form />
             <div className={styles.map}>
-                {link && <Map link={link.map} />}
+                {contact && <Map link={contact.map} />}
             </div>
         </div>
     )

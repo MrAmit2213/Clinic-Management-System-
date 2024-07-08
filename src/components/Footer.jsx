@@ -45,7 +45,7 @@ const Footer = () => {
         const fetchData = async () => {
           try {
             axios.get(`${process.env.REACT_APP_BACKEND_HOST}api/company/`).then(res => {
-              setData(res.data);
+              setData(res.data.data[0]);
             });
           } catch (error) {
           }
@@ -54,8 +54,6 @@ const Footer = () => {
         // Call the function to fetch data
         fetchData();
       }, []);
-
-      const item = data && data.success && data.data.length > 0 ? data.data[0] : null;
 
     return (
         <div className={styles.footer} style={{display:`${address==='/login' || address==='/signup' || address.includes('/admin') ?'none':'block'}`}}>
@@ -68,13 +66,13 @@ const Footer = () => {
             </div>
             <div className={`${styles.flex} ${styles.main}`}>
                 <div className={styles.leftFooter}>
-                    <h1>i-Care</h1>
+                    {data && <img style={{maxHeight:'70px', maxWidth:'200px'}} src={`${process.env.REACT_APP_BACKEND_HOST}${data.logo}`} alt="logo" />}
                     <p>Luxe-Decor your premier destination for luxury and modern interior design</p>
                     <div className={styles.social}>
-                        <a href="https://www.facebook.com/"><i className={`fa-brands fa-square-facebook`}></i></a>
-                        <a href="https://www.x.com/"><i className={`fa-brands fa-square-twitter`}></i></a>
-                        <a href="https://www.instagram.com/"><i className={`fa-brands fa-square-instagram`}></i></a>
-                        <a href="https://www.linkedin.com/"><i className={`fa-brands fa-linkedin`}></i></a>
+                        <a href={`${data && data.facebook?data.facebook:"https://www.facebook.com/"}`}><i className={`fa-brands fa-square-facebook`}></i></a>
+                        <a href={`${data && data.twitter?data.twitter:"https://www.x.com/"}`}><i className={`fa-brands fa-square-twitter`}></i></a>
+                        <a href={`${data && data.Instagram?data.Instagram:"https://www.instagram.com/"}`}><i className={`fa-brands fa-square-instagram`}></i></a>
+                        <a href={`${data && data.linkedin?data.linkedin:"https://www.linkedin.com/"}`}><i className={`fa-brands fa-linkedin`}></i></a>
                     </div>
                 </div>
                 <div className={`${styles.flex} ${styles.rightFooter} ${styles.links}`}>
@@ -82,7 +80,7 @@ const Footer = () => {
                         <h3>Useful Links</h3>
                         <li><Link to='/appointments'>Book an Appointment</Link></li>
                         <li><Link to='/blog'>Blogs</Link></li>
-                        <li><Link to='/aboutus'>About Us</Link></li>
+                        <li><Link to='/contact'>Contact Us</Link></li>
                     </ul>
                     <ul>
                         <h3>Our Services</h3>
@@ -91,9 +89,9 @@ const Footer = () => {
                         <li><Link>Pricing</Link></li>
                     </ul>
                     <ul>   
-                        <h3>Useful Links</h3>
-                        <li><Link>new.info@gmail.com</Link></li>
-                        {item && <li><Link>{item.address}</Link></li>}
+                        <h3>Our Services</h3>
+                        {data && <li><Link>{data.email}</Link></li>}
+                        {data && <li><Link>{data.address}</Link></li>}
                         <h4 className={styles.admin}><Link to='/admin/login'>Admin Login</Link></h4>
                     </ul>
                 </div>

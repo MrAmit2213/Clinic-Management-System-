@@ -31,6 +31,7 @@ const Login = () => {
             body: JSON.stringify({ email: credentials.email, password: credentials.password })
         });
         const json = await response.json();
+        console.log(json)
         if (json.success) {
             dispatch({
                 type: "USER_LOGIN",
@@ -58,7 +59,7 @@ const Login = () => {
         <div className={styles.flex} >
             <div className={styles.leftPage}>
                 <div className={styles.logo}>
-                    <img src={`${company.logo?`${process.env.REACT_APP_BACKEND_HOST}${company.logo}`:"./images/logo.png"}`} alt="logo" />
+                    <img src={`${company.logo?`${process.env.REACT_APP_BACKEND_HOST}${company.logo}`:"../images/logo.png"}`} alt="logo" />
                 </div>
                 <div>
                     <form action="">

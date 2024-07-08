@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../css/contact.module.css'
+import Modal from './Modal'
 
 const Form = () => {
     const [detail, setDetail] = useState({ fname: '', lname: '', email: '', phone_number: '', message: '' })
     const [cdetail, setCdetail] = useState({ name: '', email: '', phone_number: '', message: '' })
+    const [open, setOpen] = useState(false);
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const handleOpen = () => {
+        setOpen(true);
+    };
 
     useEffect(() => {
         const fetchData = async () => {
-            setCdetail({name:detail.fname+' '+detail.lname, email: detail.email, phone_number: detail.phone_number, message: detail.message })
+            setCdetail({ name: detail.fname + ' ' + detail.lname, email: detail.email, phone_number: detail.phone_number, message: detail.message })
         }
         fetchData();
     }, [detail]);
@@ -30,6 +39,7 @@ const Form = () => {
             })
             .then(data => {
                 console.log('Query posted successfully:', data);
+                handleOpen();
                 setDetail({ fname: '', lname: '', email: '', phone_number: '', message: '' })
                 setCdetail({ name: '', email: '', phone_number: '', message: '' })
                 // Handle success, maybe show a success message to the user
@@ -47,6 +57,12 @@ const Form = () => {
     return (
         <>
             <div className={`${styles.query}`}>
+                <Modal isOpen={open} onClose={handleClose}>
+                    <div className={styles.modalItem}>
+                        <p>Your Query has been Submitted!</p>
+                        <button onClick={handleClose}>Ok</button>
+                    </div>
+                </Modal>
                 <span className={styles.background}>contact us</span>
                 <div className={`${styles.flex} ${styles.queryBox}`}>
                     <div className={styles.written}>

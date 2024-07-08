@@ -54,15 +54,28 @@
     align-items: center;
     padding: 15px;
 }
+.btns{
+    display: flex;
+    gap: 20px;
+}
+.btns :first-child{
+    background-color: transparent;
+    color: black;
+    border: 1px solid;
+}
 .top button{
     all: unset;
     height: fit-content;
-    padding: 10px 25px;
-    background-color: #4182F9;
+    padding: 10px 20px;
+    background-color: rgb(4, 4, 85);
     font-size: medium;
     font-weight: 500;
     color: white;
     border-radius: 5px;
+}
+
+.btns button:hover, .top button:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 10px rgba(0, 0, 0, 0.19);
 }
 
 .form{
@@ -123,6 +136,43 @@
 .gap{
     margin-top: 50px;
 }
+
+.modalItem{
+    text-align: center;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    color: black;
+}
+
+.modalItem button{
+    padding: 8px 13px;
+    width: fit-content;
+    border-radius: 5px;
+}
+
+.modalItem div{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.save{
+    background-color: rgb(4, 4, 85);
+    color: white;
+}
+
+.cancel{
+    color: rgb(4, 4, 85);
+    background-color: transparent;
+}
+
+.modalItem button:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 10px rgba(0, 0, 0, 0.19);
+}
+
 
 @media (max-width:400px) {
     .page{

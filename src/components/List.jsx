@@ -2,6 +2,50 @@ import React from 'react'
 import styles from '../css/list.module.css'
 
 const List = (props) => {
+    // const handleDownload = (name) => {
+    //     fetch(`${process.env.REACT_APP_BACKEND_HOST}${name}`, {
+    //         mode: "no-cors",
+
+    //         headers: {
+    //             "Access-Control-Allow-Origin": "*",
+    //             "Content-Type": "application/json",
+    //             // 'Content-Type': 'application/x-www-form-urlencoded',
+    //         },
+    //     })
+    //         .then(response => {
+    //             console.log(response);
+    //             if (!response.ok) {
+    //                 throw new Error('Network response was not ok');
+    //             }
+    //             return response.blob();
+    //         })
+    //         .then((blob) => {
+    //             const url = window.URL.createObjectURL(new Blob([blob]));
+    //             console.log(url)
+    //             const link = document.createElement("a");
+    //             link.href = url;
+    //             link.download = "doc.jpg";
+    //             console.log(link)
+    //             document.body.appendChild(link);
+
+    //             link.click();
+
+    //             document.body.removeChild(link);
+    //             window.URL.revokeObjectURL(url);
+    //         })
+    //         .catch((error) => {
+    //             console.error("Error fetching the file:", error);
+    //         });
+    // };
+    // const handleDownload = (name) => {
+    //     const pdfUrl = `${process.env.REACT_APP_BACKEND_HOST}${name}`;
+    //     const link = document.createElement('a');
+    //     link.href = pdfUrl;
+    //     link.download = 'document.pdf'; // You can customize the filename here
+    //     document.body.appendChild(link);
+    //     link.click();
+    //     document.body.removeChild(link);
+    // };
     return (
         <div className={styles.body}>
             <table cellSpacing='0'>
@@ -13,41 +57,12 @@ const List = (props) => {
                         <th>{props.h4}</th>
                         <th>{props.h5}</th>
                         <th>{props.h6}</th>
-                        <th></th>
+                        <th>{props.h7}</th>
                     </tr>
                 </thead>
+
                 <tbody>
-                    {props.data ?
-                        props.data.filter((im) => {
-                            return props.search.toLowerCase() === '' ? im : im.entities.toLowerCase().includes(props.search.toLowerCase())
-                        }).map((pay, index) => (
-                            <tr key={pay.id}>
-                                <td>{index + 1}.</td>
-                                <td>{pay.entities}</td>
-                                <td>{pay.service_type}</td>
-                                <td>{pay.amount}</td>
-                                <td className={`${pay.status.toLowerCase() === 'successful' ? styles.green : pay.status.toLowerCase() === 'pending' ? styles.yellow : styles.red} ${styles.status}`}>
-                                    <i className="fa-solid fa-circle"></i>
-                                    {pay.status}
-                                </td>
-                                <td>{pay.date}</td>
-                                <td className={styles.btn}>
-                                    <i className="fa-solid fa-download"></i>
-                                </td>
-                            </tr>
-                        )) :
-                        <p>No Data Available</p>
-                    }
-                    {/* <tr>
-                        <td>ghfhf</td>
-                        <td>ghfhf</td>
-                        dangerouslySetInnerHTML={{ __html: ex }}
-                        <td>ghfhf</td>
-                        <td>ghfhf</td>
-                        <td>ghfhf</td>
-                        <td>ghfhf</td>
-                        <td><i className="fa-solid fa-download"></i></td>
-                    </tr> */}
+                    {props.children}
                 </tbody>
             </table>
         </div>

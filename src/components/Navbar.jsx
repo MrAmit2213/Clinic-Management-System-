@@ -13,16 +13,15 @@ const Navbar = () => {
     const [disp, setDisp] = useState(false);
     const [company, setCompany] = useState({});
     const [profile, setProfile] = useState(false);
-    // eslint-disable-next-line
     const [login, setLogin] = useState(false);
 
     useEffect(() => {
-        if (!authData.isLoggedIn) {
+        if (!authData.isLoggedIn || authData.user==='admin') {
             setLogin(false);
         } else {
             setLogin(true);
         }
-    }, [authData.isLoggedIn]);
+    }, [authData]);
 
 
     useEffect(() => {
@@ -63,7 +62,7 @@ const Navbar = () => {
         <div className={styles.navbar} style={{ display: `${address === '/login' || address === '/signup' || address.includes('/admin') ? 'none' : 'block'}` }}  >
             <ul>
                 <Link onClick={def} to='/'>
-                    <li><img className={styles.logo} src={`${company.logo ? `${process.env.REACT_APP_BACKEND_HOST}${company.logo}` : "./images/logo.png"}`} alt="logo" /></li>
+                    <li><img className={styles.logo} src={`${company.logo ? `${process.env.REACT_APP_BACKEND_HOST}${company.logo}` : "../images/logo.png"}`} alt="logo" /></li>
                 </Link>
                 <div className={`${styles.flex} ${styles.link}`}>
                     <div className={`${styles.flex} ${styles.change}`}>
@@ -75,11 +74,11 @@ const Navbar = () => {
                     {
                         login ?
                             <div className={styles.profile}>
-                                <img onClick={showProfile} src={`${authData.image ? `${process.env.REACT_APP_BACKEND_HOST}${authData.image}` : "./images/default-profile.jpg"}`} alt="profile" />
+                                <img onClick={showProfile} src={`${authData.image ? `${process.env.REACT_APP_BACKEND_HOST}${authData.image}` : "../images/default-profile.jpg"}`} alt="profile" />
                                 <br />
                                 <div className={`${styles.profileBar} ${profile ? styles.blk : ''} `}>
                                     <div className={`${styles.flex} ${styles.personal}`}>
-                                        <img src={`${authData.image ? `${process.env.REACT_APP_BACKEND_HOST}${authData.image}` : "./images/default-profile.jpg"}`} alt="profile" />
+                                        <img src={`${authData.image ? `${process.env.REACT_APP_BACKEND_HOST}${authData.image}` : "../images/default-profile.jpg"}`} alt="profile" />
                                         <ul>
                                             <li>Name</li>
                                             <li className={styles.email}>email</li>

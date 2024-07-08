@@ -10,7 +10,7 @@ export default function Opinion(props) {
   const [service, setService] = useState(null);
 
   const getData = async () => {
-    const response = await axios.get(`${process.env.REACT_APP_BACKEND_HOST}api/patient_opinion/`).then((res) => res.data);
+    const response = await axios.get(`${process.env.REACT_APP_BACKEND_HOST}api/review/`).then((res) => res.data);
     if (response.success) setService(response.data);
   }
 

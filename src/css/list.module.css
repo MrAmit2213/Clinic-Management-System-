@@ -15,43 +15,17 @@
 
 .body tbody{
     background-color: white;
-    text-align: center;
+    /* text-align: center; */
 }
 .body td{
     padding: 10px 0;
+    text-align: center;
 }
 
 .body tbody tr:hover{
     background-color: #f1efef;
 }
 
-.btn{
-    color: #8CA4C5;
-    cursor: pointer;
-}
-
 .body tbody tr{
     font-weight: 500;
-}
-
-.red{
-    color: red;
-}
-.green{
-    color: green;
-}
-.yellow{
-    color: yellow;
-}
-
-.status i{
-    font-size: 6px;
-    padding-top: 5px;
-}
-
-.status{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
 }

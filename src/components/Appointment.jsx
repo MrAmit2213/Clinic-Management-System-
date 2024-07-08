@@ -8,7 +8,7 @@ const Appointment = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_HOST}api/doctor_profile/`);
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_HOST}api/user/filter?type=2`);
                 const data = await response.json();
                 setDoc(data.data);
             } catch (error) {
@@ -30,7 +30,7 @@ const Appointment = () => {
                         //  </Link> 
                     ))
                 ) : (
-                    <p>No blogs available</p>
+                    <p>No Data available</p>
                 )}
             </div>
         </div>

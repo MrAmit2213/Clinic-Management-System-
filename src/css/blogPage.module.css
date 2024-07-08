@@ -9,10 +9,11 @@
 }
 
 .blog img{
-    width: 100%;
-    max-height: 400px;
+    margin: 0 10%;
+    width: 80%;
+    max-height: 500px;
     border-radius: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 .blog p{
     margin: 30px 20px;
@@ -31,6 +32,17 @@
 .flex{
     display: flex;
     gap: 1.5vw;
+}
+
+.similar a{
+    width: 350px;
+    text-decoration: none;
+    color: unset;
+}
+
+.similar a >*{
+    width: auto;
+    height: 350px;
 }
 
 @media (max-width:400px) {

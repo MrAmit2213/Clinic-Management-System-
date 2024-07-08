@@ -26,18 +26,21 @@
 
 .profile{
     width: 25px;
+    height: 25px;
     border-radius: 50%;
-    color: gray;
+    border: 1px solid;
 }
 
 .author{
     justify-content: space-between;
     align-items: center;
     color: gray;
+    align-items: center;
 }
 
 .author p{
-    font-size: x-small;
+    font-size: small;
+    margin-left: 0;
     margin-top: 3px;
 }
 
